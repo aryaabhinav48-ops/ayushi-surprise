@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="theme-color" content="#ff4f81">
+
+<title>For Ayushi ❤️</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff0f5;
+    color: #3d2430;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+
+/* =========================================================
+   OPENING SCREEN
+========================================================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(circle at top, #ffb6cc, transparent 45%),
+        linear-gradient(135deg, #ff4f81, #ff8fb1);
+
+    color: white;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+#opening.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    width: min(90%, 650px);
+    text-align: center;
+}
+
+.opening-heart {
+    font-size: clamp(70px, 18vw, 130px);
+
+    animation: heartbeat 1.3s infinite;
+
+    margin-bottom: 20px;
+}
+
+.opening-content h1 {
+    font-size: clamp(32px, 8vw, 65px);
+    margin-bottom: 15px;
+}
+
+.opening-content p {
+    font-size: clamp(16px, 4vw, 22px);
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+#openBtn {
+    border: none;
+
+    background: white;
+    color: #f04476;
+
+    padding: 18px 32px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.2);
+
+    transition: transform 0.2s ease;
+}
+
+#openBtn:hover {
+    transform: scale(1.06);
+}
+
+#openBtn:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+   SLIDE SYSTEM
+========================================================= */
+
+.slide {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:
+        max(35px, env(safe-area-inset-top))
+        7%
+        max(35px, env(safe-area-inset-bottom));
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SLIDE BACKGROUNDS
+========================================================= */
+
+.slide:nth-child(1) {
+    background:
+        radial-gradient(circle at 20% 20%, #ffd5e2, transparent 35%),
+        linear-gradient(135deg, #fff5f8, #ffe4ed);
+}
+
+.slide:nth-child(2) {
+    background:
+        radial-gradient(circle at 80% 20%, #ffc3d6, transparent 35%),
+        linear-gradient(135deg, #fff0f5, #fff9fb);
+}
+
+.slide:nth-child(3) {
+    background:
+        radial-gradient(circle at 20% 80%, #ffc8da, transparent 35%),
+        linear-gradient(135deg, #fff5f8, #ffeaf1);
+}
+
+.slide:nth-child(4) {
+    background:
+        radial-gradient(circle at 80% 30%, #ffd1df, transparent 35%),
+        linear-gradient(135deg, #fff1f6, #fffafc);
+}
+
+.slide:nth-child(5) {
+    background:
+        radial-gradient(circle at 30% 30%, #ffc4d6, transparent 40%),
+        linear-gradient(135deg, #fff4f8, #ffe6ef);
+}
+
+.slide:nth-child(6) {
+    background:
+        radial-gradient(circle at 70% 70%, #ffc1d4, transparent 40%),
+        linear-gradient(135deg, #fff2f6, #fffafd);
+}
+
+.slide:nth-child(7) {
+    background:
+        radial-gradient(circle at 20% 30%, #ffd2df, transparent 40%),
+        linear-gradient(135deg, #fff3f7, #ffe8ef);
+}
+
+.slide:nth-child(8) {
+    background:
+        radial-gradient(circle at 80% 70%, #ffc7d8, transparent 40%),
+        linear-gradient(135deg, #fff4f8, #fffafd);
+}
+
+.slide:nth-child(9) {
+    background:
+        radial-gradient(circle at center, #ffd0df, transparent 45%),
+        linear-gradient(135deg, #ffeaf1, #fff6f9);
+}
+
+.slide:nth-child(10) {
+    background:
+        radial-gradient(circle at center, #ffb6ce, transparent 45%),
+        linear-gradient(135deg, #ffdfeb, #fff2f6);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.slide-content {
+    width: min(1050px, 100%);
+    text-align: center;
+
+    animation: slideAppear 1s ease;
+}
+
+.slide-number {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #c56a86;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.slide-content h2 {
+    font-size: clamp(30px, 6vw, 58px);
+    color: #e53d70;
+    margin-bottom: 20px;
+}
+
+.slide-content h3 {
+    color: #df3d6c;
+}
+
+.main-text {
+    max-width: 800px;
+    margin: auto;
+
+    font-size: clamp(17px, 3vw, 21px);
+    line-height: 1.8;
+}
+
+.highlight {
+    color: #e6386d;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-heart {
+    font-size: clamp(75px, 18vw, 145px);
+
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.hero-name {
+    font-size: clamp(45px, 11vw, 90px) !important;
+}
+
+
+/* =========================================================
+   PHOTO GALLERY
+========================================================= */
+
+.gallery {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    max-width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photo {
+    height: 190px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+        #ffd5e2,
+        #fff1f6);
+
+    box-shadow:
+        0 10px 30px rgba(180,50,90,0.15);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.photo-placeholder {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    color: #d84c76;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: 30px auto 0;
+}
+
+.card {
+    background:
+        rgba(255,255,255,0.82);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 25px;
+
+    padding: 30px 25px;
+
+    box-shadow:
+        0 12px 35px rgba(170,40,80,0.12);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card-emoji {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-box {
+    max-width: 850px;
+
+    margin: 30px auto;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 35px 25px;
+
+    box-shadow:
+        0 15px 40px rgba(170,40,80,0.14);
+}
+
+.quote {
+    color: #e43e70;
+
+    font-size: clamp(20px, 4vw, 30px);
+
+    line-height: 1.6;
+
+    font-weight: bold;
+}
+
+.quote-author {
+    margin-top: 15px;
+
+    color: #8e6875;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SLEEP METER
+========================================================= */
+
+.sleep-meter {
+    width: min(750px, 100%);
+
+    margin: 35px auto;
+}
+
+.meter {
+    height: 35px;
+
+    background: #ffd6e3;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+
+    width: 97%;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff91b0,
+            #e63f70
+        );
+
+    animation:
+        meterFill 2s ease;
+}
+
+.meter-label {
+    margin-top: 12px;
+
+    color: #dc3c6b;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   CARE LIST
+========================================================= */
+
+.care-list {
+    max-width: 750px;
+
+    margin: 30px auto;
+
+    text-align: left;
+}
+
+.care-item {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 17px 20px;
+
+    margin-bottom: 13px;
+
+    box-shadow:
+        0 7px 20px rgba(160,40,80,0.08);
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ADMIRATION
+========================================================= */
+
+.admiration-card {
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    padding: 40px 25px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 45px rgba(170,40,80,0.13);
+}
+
+.admiration-card p {
+    font-size: clamp(18px, 3vw, 22px);
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+.game-box {
+    width: min(800px, 100%);
+
+    background: white;
+
+    border-radius: 32px;
+
+    padding:
+        clamp(30px, 6vw, 60px)
+        25px;
+
+    box-shadow:
+        0 18px 50px rgba(170,40,80,0.16);
+
+    margin: 25px auto 0;
+}
+
+.game-box h3 {
+    font-size: clamp(24px, 5vw, 38px);
+
+    color: #e63d70;
+
+    margin-bottom: 15px;
+}
+
+.game-box p {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.game-buttons {
+    position: relative;
+
+    min-height: 130px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.game-btn {
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 15px 30px;
+
+    min-width: 120px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4f81;
+
+    color: white;
+
+    box-shadow:
+        0 8px 22px rgba(255,79,129,0.3);
+
+    transition:
+        transform 0.2s ease;
+}
+
+#yesBtn:hover {
+    transform: scale(1.08);
+}
+
+#noBtn {
+    background: #eeeeee;
+
+    color: #555;
+
+    position: relative;
+
+    transition:
+        transform 0.18s ease;
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+#finalMessage {
+    display: none;
+
+    margin-top: 30px;
+
+    animation:
+        finalReveal 1s ease;
+}
+
+.final-card {
+    background:
+        linear-gradient(
+            135deg,
+            white,
+            #fff0f5
+        );
+
+    border-radius: 32px;
+
+    padding: 45px 25px;
+
+    box-shadow:
+        0 18px 55px rgba(170,40,80,0.18);
+}
+
+.final-card h2 {
+    font-size: clamp(34px, 7vw, 58px);
+
+    color: #e43d70;
+
+    margin-bottom: 25px;
+}
+
+.final-card p {
+    max-width: 750px;
+
+    margin: 18px auto;
+
+    font-size: clamp(17px, 3vw, 21px);
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+#musicBtn {
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 5000;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-hint {
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #c45d7b;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    animation:
+        scrollBounce 1.5s infinite;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    animation:
+        floatUp linear forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+@keyframes slideAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes meterFill {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 97%;
+    }
+
+}
+
+@keyframes scrollBounce {
+
+    0%,100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(8px);
+    }
+
+}
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cards {
+        grid-template-columns:
+            1fr;
+    }
+
+    .photo {
+        height: 230px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .slide {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .photo {
+        height: 190px;
+        border-radius: 17px;
+    }
+
+    .cards {
+        gap: 14px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    .quote-box {
+        padding: 28px 18px;
+    }
+
+    .game-buttons {
+        min-height: 150px;
+    }
+
+    .game-btn {
+        padding: 14px 22px;
+        min-width: 105px;
+    }
+
+    #musicBtn {
+        width: 48px;
+        height: 48px;
+
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .scroll-hint {
+        bottom: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 370px) {
+
+    .gallery {
+        grid-template-columns:
+            1fr;
+    }
+
+    .photo {
+        height: 260px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================================
+     OPENING SCREEN
+========================================================= -->
+
+<div id="opening">
+
+    <div class="opening-content">
+
+        <div class="opening-heart">
+            ❤️
+        </div>
+
+        <h1>
+            Hey Ayushi...
+        </h1>
+
+        <p>
+            I made something for you.<br>
+            Not because there's a special occasion...<br>
+            just because you're you. ❤️
+        </p>
+
+        <button id="openBtn">
+            Tap to open your surprise ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================
+     MUSIC
+========================================================= -->
+
+<audio id="bgMusic"
+       loop
+       playsinline
+       preload="auto">
+
+    <source src="song.mp3"
+            type="audio/mpeg">
+
+</audio>
+
+<button id="musicBtn"
+        aria-label="Music">
+
+    🎵
+
+</button>
+
+
+<!-- ========================================================
+     SLIDE 1
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="hero-heart">
+            💗
+        </div>
+
+        <h2 class="hero-name">
+            Ayushi
+        </h2>
+
+        <p class="main-text">
+
+            This isn't a website about a relationship.
+
+            <br><br>
+
+            It's simply a tiny little place
+            made to appreciate
+
+            <span class="highlight">
+                YOU.
+            </span>
+
+            ❤️
+
+        </p>
+
+    </div>
+
+    <div class="scroll-hint">
+        SCROLL ↓
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 2
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            01 / 09
+        </div>
+
+        <h2>
+            First of all... 🌷
+        </h2>
+
+        <p class="main-text">
+
+            You probably don't realize this,
+
+            but there are so many little things
+            about you that make you special.
+
+            <br><br>
+
+            Your habits.
+
+            Your expressions.
+
+            Your random conversations.
+
+            Your slightly chaotic personality.
+
+            <br><br>
+
+            And honestly...
+
+            <span class="highlight">
+                that's what makes you, you.
+            </span>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 3 — PHOTOS
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            02 / 09
+        </div>
+
+        <h2>
+            Your Little Gallery 📸
+        </h2>
+
+        <p class="main-text">
+
+            Because someone this cute
+            deserves her own little gallery. ❤️
+
+        </p>
+
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img src="photo1.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo1.jpg ❤️</div>';">
+            </div>
+
+            <div class="photo">
+                <img src="photo2.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo2.jpg ❤️</div>';">
+            </div>
+
+            <div class="photo">
+                <img src="photo3.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo3.jpg ❤️</div>';">
+            </div>
+
+            <div class="photo">
+                <img src="photo4.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo4.jpg ❤️</div>';">
+            </div>
+
+            <div class="photo">
+                <img src="photo5.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo5.jpg ❤️</div>';">
+            </div>
+
+            <div class="photo">
+                <img src="photo6.jpg"
+                     alt="Ayushi"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>Add photo6.jpg ❤️</div>';">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 4 — PERSONALITY
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            03 / 09
+        </div>
+
+        <h2>
+            Things That Make You... You 😂
+        </h2>
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-emoji">
+                    😴
+                </div>
+
+                <h3>
+                    Professional Sleeper
+                </h3>
+
+                <p>
+                    Sleeping isn't just something you do.
+
+                    At this point,
+                    it's basically a professional skill.
+
+                    If sleeping had a championship,
+                    you'd probably win.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-emoji">
+                    😂
+                </div>
+
+                <h3>
+                    Randomly Careless
+                </h3>
+
+                <p>
+                    Somehow you can walk normally
+                    and then suddenly fall,
+                    bump into something,
+                    or somehow hurt yourself.
+
+                    Please explain. 😭
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-emoji">
+                    🍽️
+                </div>
+
+                <h3>
+                    The Food Problem
+                </h3>
+
+                <p>
+                    Food exists.
+
+                    You:
+                    "I'm not hungry."
+
+                    Someone asks again.
+
+                    You:
+                    "I already ate."
+
+                    The investigation continues. 😂
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-emoji">
+                    🥹
+                </div>
+
+                <h3>
+                    Somehow Adorable
+                </h3>
+
+                <p>
+                    And somehow...
+
+                    after all of this,
+
+                    you're still ridiculously adorable.
+
+                    That's honestly unfair.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 5 — FOOD
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            04 / 09
+        </div>
+
+        <h2>
+            Your Most Famous Dialogue 🍽️😂
+        </h2>
+
+        <div class="quote-box">
+
+            <div class="quote">
+
+                "MUJHE BILKUL MANN NHI H
+                KHAANE KA,
+                THORA SA KHAYI HU,
+                PET ME JAGAH NHI BACHI ABB"
+
+            </div>
+
+            <div class="quote-author">
+                — Ayushi, probably after eating three bites. 😭
+            </div>
+
+        </div>
+
+        <p class="main-text">
+
+            Madam...
+
+            respectfully...
+
+            <br><br>
+
+            <span class="highlight">
+                PLEASE EAT. 😭❤️
+            </span>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 6 — SLEEP
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            05 / 09
+        </div>
+
+        <h2>
+            Ayushi's Sleep Level 😴
+        </h2>
+
+        <p class="main-text">
+
+            A completely scientific measurement.
+
+            Definitely not made up.
+
+        </p>
+
+
+        <div class="sleep-meter">
+
+            <div class="meter">
+
+                <div class="meter-fill"></div>
+
+            </div>
+
+            <div class="meter-label">
+                97% — Sleep is life.
+            </div>
+
+        </div>
+
+
+        <p class="main-text">
+
+            The remaining 3% is used for:
+
+            <br><br>
+
+            Eating... sometimes. 😂
+
+            <br>
+
+            Randomly getting hurt. 😭
+
+            <br>
+
+            And saying...
+
+            <span class="highlight">
+                "I'm tired."
+            </span>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 7 — CARE
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            06 / 09
+        </div>
+
+        <h2>
+            Okay... Jokes Aside ❤️
+        </h2>
+
+        <p class="main-text">
+
+            There's actually something
+            I want you to remember.
+
+        </p>
+
+
+        <div class="care-list">
+
+            <div class="care-item">
+                🫶 Take care of yourself.
+            </div>
+
+            <div class="care-item">
+                🍚 Don't skip meals just because
+                you don't feel like eating.
+            </div>
+
+            <div class="care-item">
+                😭 Please stop randomly injuring yourself.
+            </div>
+
+            <div class="care-item">
+                😴 Sleep as much as you need,
+                but take care of yourself too.
+            </div>
+
+            <div class="care-item">
+                ❤️ And remember that someone
+                genuinely cares about you.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 8 — ADMIRATION
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            07 / 09
+        </div>
+
+        <h2>
+            What I See In You 🌷
+        </h2>
+
+
+        <div class="admiration-card">
+
+            <p>
+
+                I see someone who doesn't always realize
+                how lovable she is.
+
+                <br><br>
+
+                Someone who can be careless,
+                sleepy,
+                stubborn,
+                slightly chaotic...
+
+                <br><br>
+
+                but still somehow manages
+                to be incredibly special.
+
+                <br><br>
+
+                You don't have to be perfect.
+
+                <br><br>
+
+                <span class="highlight">
+                    Just being you is enough.
+                </span>
+
+                ❤️
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 9 — GAME
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            08 / 09
+        </div>
+
+        <h2>
+            One Very Important Question 👀
+        </h2>
+
+
+        <div class="game-box">
+
+            <h3>
+                Are you sure you don't love me? 😌
+            </h3>
+
+            <p>
+
+                Think carefully before answering.
+
+                <br>
+
+                This is a very serious
+                scientific experiment. 😂
+
+            </p>
+
+
+            <div class="game-buttons">
+
+                <button
+                    class="game-btn"
+                    id="yesBtn">
+
+                    Yes ❤️
+
+                </button>
+
+
+                <button
+                    class="game-btn"
+                    id="noBtn">
+
+                    No 😭
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <div id="finalMessage">
+
+            <div class="final-card">
+
+                <h2>
+                    I Knew It. 😌❤️
+                </h2>
+
+                <p>
+                    Okay okay...
+
+                    maybe that was a little unfair. 😂
+                </p>
+
+                <p>
+                    But honestly,
+                    this whole website wasn't really
+                    about that question.
+                </p>
+
+                <p>
+                    I just wanted to make something
+                    that was completely about
+                    <strong>you.</strong>
+                </p>
+
+                <p>
+                    Your sleepy personality.
+
+                    Your food excuses.
+
+                    Your random carelessness.
+
+                    Your little habits.
+
+                    Your smile.
+
+                    Your way of being you.
+                </p>
+
+                <p>
+                    All those little things
+                    that make you different.
+                </p>
+
+                <p>
+                    And maybe you don't always realize it,
+                    but you're genuinely special.
+                </p>
+
+                <p>
+
+                    So whenever you forget that...
+
+                    <br><br>
+
+                    come back here. ❤️
+
+                </p>
+
+                <p>
+
+                    With love,
+
+                    <br>
+
+                    <strong>
+                        Abhinav ❤️
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     SLIDE 10 — END
+========================================================= -->
+
+<section class="slide">
+
+    <div class="slide-content">
+
+        <div class="slide-number">
+            09 / 09
+        </div>
+
+        <div class="hero-heart">
+            💖
+        </div>
+
+        <h2>
+            That's It...
+        </h2>
+
+        <p class="main-text">
+
+            No complicated ending.
+
+            <br><br>
+
+            Just one final reminder:
+
+            <br><br>
+
+            <span class="highlight">
+                Take care of yourself, Ayushi.
+            </span>
+
+            ❤️
+
+            <br><br>
+
+            — Abhinav
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const opening =
+    document.getElementById("opening");
+
+const openBtn =
+    document.getElementById("openBtn");
+
+const music =
+    document.getElementById("bgMusic");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const finalMessage =
+    document.getElementById("finalMessage");
+
+
+/* =========================================================
+   OPEN WEBSITE
+========================================================= */
+
+openBtn.addEventListener("click", async function() {
+
+    opening.classList.add("hidden");
+
+    try {
+
+        await music.play();
+
+        musicBtn.textContent = "🔊";
+
+    } catch(error) {
+
+        musicBtn.textContent = "🎵";
+
+    }
+
+    createHearts(15);
+
+});
+
+
+/* =========================================================
+   MUSIC TOGGLE
+========================================================= */
+
+musicBtn.addEventListener("click", async function() {
+
+    if (music.paused) {
+
+        try {
+
+            await music.play();
+
+            musicBtn.textContent = "🔊";
+
+        } catch(error) {
+
+            musicBtn.textContent = "🎵";
+
+        }
+
+    } else {
+
+        music.pause();
+
+        musicBtn.textContent = "🔇";
+
+    }
+
+});
+
+
+/* =========================================================
+   NO BUTTON — LAPTOP + MOBILE
+========================================================= */
+
+function moveNoButton() {
+
+    const parent =
+        noBtn.parentElement;
+
+    const parentRect =
+        parent.getBoundingClientRect();
+
+    const buttonRect =
+        noBtn.getBoundingClientRect();
+
+
+    const maxX =
+        Math.max(
+            15,
+            (parentRect.width -
+            buttonRect.width) / 2 -
+            10
+        );
+
+
+    const maxY = 50;
+
+
+    const x =
+        (Math.random() * 2 - 1) *
+        maxX;
+
+
+    const y =
+        (Math.random() * 2 - 1) *
+        maxY;
+
+
+    noBtn.style.transform =
+        "translate(" +
+        x +
+        "px," +
+        y +
+        "px)";
+
+}
+
+
+/*
+    LAPTOP / MOUSE
+*/
+
+noBtn.addEventListener(
+    "pointerenter",
+    function(event) {
+
+        if(event.pointerType === "mouse") {
+
+            moveNoButton();
+
+        }
+
+    }
+);
+
+
+/*
+    MOBILE / TOUCH
+*/
+
+noBtn.addEventListener(
+    "pointerdown",
+    function(event) {
+
+        if(event.pointerType === "touch") {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        }
+
+    }
+);
+
+
+/*
+    EXTRA TOUCH SUPPORT
+*/
+
+noBtn.addEventListener(
+    "touchstart",
+    function(event) {
+
+        event.preventDefault();
+
+        moveNoButton();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =========================================================
+   YES BUTTON
+========================================================= */
+
+yesBtn.addEventListener(
+    "click",
+    function() {
+
+        finalMessage.style.display =
+            "block";
+
+        finalMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        yesBtn.textContent =
+            "❤️ I knew it!";
+
+        noBtn.style.display =
+            "none";
+
+        createHearts(40);
+
+    }
+);
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHearts(amount) {
+
+    const hearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "💘",
+        "💞"
+    ];
+
+
+    for(let i = 0; i < amount; i++) {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "floating-heart";
+
+
+        heart.textContent =
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() * 100 +
+            "vw";
+
+
+        heart.style.fontSize =
+            15 +
+            Math.random() * 25 +
+            "px";
+
+
+        heart.style.animationDuration =
+            3 +
+            Math.random() * 4 +
+            "s";
+
+
+        heart.style.animationDelay =
+            Math.random() * 1.2 +
+            "s";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function() {
+
+                heart.remove();
+
+            },
+            8000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RANDOM HEARTS
+========================================================= */
+
+setInterval(
+    function() {
+
+        if(Math.random() > 0.65) {
+
+            createHearts(1);
+
+        }
+
+    },
+    1800
+);
+
+
+</script>
+
+</body>
+</html>
